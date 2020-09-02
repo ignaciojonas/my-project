@@ -83,6 +83,7 @@
                 <div class="title m-b-md">
                     Hola Mundo
                 </div>
+                <a href="contact">Contacto</a>
             </div>
         </div>
     </body>
