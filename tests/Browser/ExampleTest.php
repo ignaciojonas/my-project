@@ -20,4 +20,13 @@ class ExampleTest extends DuskTestCase
                     ->assertSee('Hola Mundo');
         });
     }
+
+
+    public function testTDD()
+    {
+        $this->browse(function (Browser $browser) {
+            $browser->visit('/')
+                    ->assertSee('Nacho');
+        });
+    }
 }
