@@ -45,7 +45,7 @@ jobs:
       - name: Upgrade Chrome Driver
         run: php artisan dusk:chrome-driver `/opt/google/chrome/chrome --version | cut -d " " -f3 | cut -d "." -f1`
       - uses: nanasess/setup-chromedriver@master
-        - run: |
+      - run: |
             export DISPLAY=:99
             chromedriver --url-base=/wd/hub &
             sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 &
