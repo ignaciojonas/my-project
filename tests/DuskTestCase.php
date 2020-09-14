@@ -33,8 +33,9 @@ abstract class DuskTestCase extends BaseTestCase
             '--disable-gpu',
             '--headless',
             '--window-size=1920,1080',
+            '--no-sandbox',
         ]);
-        
+
         if (env('USE_SELENIUM', 'false') == 'true') {
             return RemoteWebDriver::create(
                 'http://selenium:4444/wd/hub', DesiredCapabilities::chrome()->setCapability(
