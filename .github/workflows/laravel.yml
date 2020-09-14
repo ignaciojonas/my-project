@@ -28,6 +28,7 @@ jobs:
      run: vendor/bin/phpunit
  dusk-php:
     runs-on: ubuntu-latest
+    container: docker://zaherg/laravel-dusk:latest
     steps:
       - uses: actions/checkout@v2
       - name: Copy .env
@@ -43,16 +44,14 @@ jobs:
           mkdir -p database
           touch database/database.sqlite
       - name: Upgrade Chrome Driver
-        run: php artisan dusk:chrome-driver `/opt/google/chrome/chrome --version | cut -d " " -f3 | cut -d "." -f1`
+        run: php artisan dusk:chrome-driver
       - name: Start Chrome Driver
-        run: ./vendor/laravel/dusk/bin/chromedriver-linux &
+        run: ./vendor/laravel/dusk/bin/chromedriver-linux > /dev/null 2>&1 &
       - name: Run Laravel Server
-        run: php artisan serve &
+        run: php artisan serve > /dev/null 2>&1 &
       - name: Run Dusk Tests
         env:
           APP_URL: "http://127.0.0.1:8000"
           DB_CONNECTION: sqlite
           DB_DATABASE: database/database.sqlite
         run: php artisan dusk
-
-
