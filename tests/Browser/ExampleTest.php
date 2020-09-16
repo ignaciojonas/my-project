@@ -17,15 +17,6 @@ class ExampleTest extends DuskTestCase
     {
         $this->browse(function (Browser $browser) {
             $browser->visit('/')
-                    ->assertSee('Hola Mundo');
-        });
-    }
-
-
-    public function testTDD()
-    {
-        $this->browse(function (Browser $browser) {
-            $browser->visit('/')
                     ->assertSee('Nacho');
         });
     }
