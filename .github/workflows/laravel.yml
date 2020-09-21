@@ -27,3 +27,4 @@ jobs:
        DB_DATABASE: database/database.sqlite
      run: vendor/bin/phpunit --coverage-clover clover.xml
    - uses: codecov/codecov-action@v1
+   - run: vendor/bin/phan --no-progress-bar --output-mode checkstyle --allow-polyfill-parser | vendor/bin/cs2pr --graceful-warnings --colorize
