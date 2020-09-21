@@ -9,7 +9,6 @@ jobs:
    runs-on: ubuntu-latest
    steps:
    - uses: actions/checkout@v2
-   - uses: codecov/codecov-action@v1
    - name: Copy .env
      run: php -r "file_exists('.env') || copy('.env.example', '.env');"
    - name: Install Dependencies
@@ -27,3 +26,4 @@ jobs:
        DB_CONNECTION: sqlite
        DB_DATABASE: database/database.sqlite
      run: vendor/bin/phpunit
+   - uses: codecov/codecov-action@v1
