@@ -43,7 +43,7 @@
                         Hola Mundo
                     </div>
                     <a href="contact">Contacto</a>
-                    <h1>Nacho</h1>
+                    <h1>Nacho Hello World!</h1>
                 </div>
 
                 <div class="flex justify-center mt-4 sm:items-center sm:justify-between">
